@@ -402,8 +402,15 @@ uint16_t analogRead(pin_t pin) {
 
 // Wrapper to maple unprotected analogWrite
 void analogWrite(pin_t pin, int pwm_val8) {
-  if (PWM_PIN(pin))
-    analogWrite(uint8_t(pin), pwm_val8);
+  if (!PWM_PIN(pin) || pin >= BOARD_NR_GPIO_PINS)
+  {
+    return;
+  }
+  timer_dev *dev = PIN_MAP[pin].timer_device;
+  uint8 cc_channel = PIN_MAP[pin].timer_channel;
+  ASSERT(dev && cc_channel);
+  timer_set_reload(dev, 2040);
+  timer_set_compare(dev, cc_channel, pwm_val8 * 8);
 }
 
 void flashFirmware(const int16_t) { nvic_sys_reset(); }
