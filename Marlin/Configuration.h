@@ -1786,6 +1786,11 @@
 #define REVERSE_MENU_DIRECTION
 
 //
+// This option swaps the AB button.
+//
+//#define SWAP_AB_BUTTON
+
+//
 // This option reverses the encoder direction for Select Screen.
 //
 //  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
