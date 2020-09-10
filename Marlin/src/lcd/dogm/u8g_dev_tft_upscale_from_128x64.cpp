@@ -371,10 +371,10 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
         drawImage(buttonD, u8g, dev, 32, 20, TFT_BTCANCEL_COLOR);
 
         setWindow(u8g, dev, BUTTONA_X_LO, BUTTON_Y_LO, BUTTONA_X_HI, BUTTON_Y_HI);
-        drawImage(buttonA, u8g, dev, 32, 20, TFT_BTARROWS_COLOR);
+        drawImage(buttonB, u8g, dev, 32, 20, TFT_BTARROWS_COLOR);
 
         setWindow(u8g, dev, BUTTONB_X_LO, BUTTON_Y_LO, BUTTONB_X_HI, BUTTON_Y_HI);
-        drawImage(buttonB, u8g, dev, 32, 20, TFT_BTARROWS_COLOR);
+        drawImage(buttonA, u8g, dev, 32, 20, TFT_BTARROWS_COLOR);
 
         setWindow(u8g, dev, BUTTONC_X_LO, BUTTON_Y_LO, BUTTONC_X_HI, BUTTON_Y_HI);
         drawImage(buttonC, u8g, dev, 32, 20, TFT_BTOKMENU_COLOR);
