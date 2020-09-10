@@ -77,8 +77,8 @@ uint8_t TouchButtons::read_buttons() {
     // Touch within the button area simulates an encoder button
     if (y > BUTTON_AREA_TOP && y < BUTTON_AREA_BOT)
       return WITHIN(x, BUTTOND_X_LO, BUTTOND_X_HI) ? EN_D
-           : WITHIN(x, BUTTONA_X_LO, BUTTONA_X_HI) ? EN_A
-           : WITHIN(x, BUTTONB_X_LO, BUTTONB_X_HI) ? EN_B
+           : WITHIN(x, BUTTONA_X_LO, BUTTONA_X_HI) ? EN_B
+           : WITHIN(x, BUTTONB_X_LO, BUTTONB_X_HI) ? EN_A
            : WITHIN(x, BUTTONC_X_LO, BUTTONC_X_HI) ? EN_C
            : 0;
 
