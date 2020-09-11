@@ -1808,7 +1808,7 @@
 //
 // This option swaps the AB button.
 //
-//#define SWAP_AB_BUTTON
+#define SWAP_AB_BUTTON
 
 //
 // This option reverses the encoder direction for Select Screen.
