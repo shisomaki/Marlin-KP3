@@ -98,7 +98,11 @@ public:
 
   #else
 
-    FORCE_INLINE static void move_z_after_homing() {}
+    FORCE_INLINE static void move_z_after_homing() {
+      #ifdef Z_AFTER_HOMING
+        do_z_clearance(Z_AFTER_HOMING, true, true, true);
+      #endif
+    }
 
     static constexpr xyz_pos_t offset = xyz_pos_t({ 0, 0, 0 }); // See #16767
 
