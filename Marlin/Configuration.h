@@ -490,7 +490,7 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // KINGROON KP3
-  #define DEFAULT_Kp 24.0
+  #define DEFAULT_Kp 14.0
   #define DEFAULT_Ki 0.88
   #define DEFAULT_Kd 80
 
