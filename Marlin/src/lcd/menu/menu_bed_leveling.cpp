@@ -241,7 +241,11 @@ void menu_bed_leveling() {
     SUBMENU(MSG_LEVEL_BED, _lcd_level_bed_continue);
   #else
     // Automatic leveling can just run the G-code
-    GCODES_ITEM(MSG_LEVEL_BED, is_homed ? PSTR("G29") : PSTR("G28\nG29"));
+    #if ENABLED(LEVELING_END_AUTO_HOME)
+      GCODES_ITEM(MSG_LEVEL_BED, is_homed ? PSTR("G29\nG28") : PSTR("G28\nG29\nG28"));
+    #else
+      GCODES_ITEM(MSG_LEVEL_BED, is_homed ? PSTR("G29") : PSTR("G28\nG29"));
+    #endif
   #endif
 
   #if ENABLED(MESH_EDIT_MENU)

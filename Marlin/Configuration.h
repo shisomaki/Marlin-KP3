@@ -1257,6 +1257,11 @@
 #define RESTORE_LEVELING_AFTER_G28
 
 /**
+ * Return to home position after automatic leveling.
+ */
+#define LEVELING_END_AUTO_HOME
+
+/**
  * Enable detailed logging of G28, G29, M48, etc.
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of PROGMEM!
