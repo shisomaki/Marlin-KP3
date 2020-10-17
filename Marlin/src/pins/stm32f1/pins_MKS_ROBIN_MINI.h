@@ -157,6 +157,7 @@
 
   #define LCD_RESET_PIN                     PC6   // FSMC_RST
   #define LCD_BACKLIGHT_PIN                 PD13
+  #define TFT_BUFFER_SIZE                  14400
 #endif
 
 #if BOTH(NEED_TOUCH_PINS, HAS_FSMC_GRAPHICAL_TFT) || ENABLED(TFT_320x240)
@@ -164,16 +165,6 @@
   #define TOUCH_SCK_PIN                     PB13  // SPI2_SCK
   #define TOUCH_MISO_PIN                    PB14  // SPI2_MISO
   #define TOUCH_MOSI_PIN                    PB15  // SPI2_MOSI
-#endif
-
-#if ENABLED(TFT_320x240)                          // TFT32/28
-  #define TFT_DRIVER                     ILI9341
-  #define TFT_BUFFER_SIZE                  14400
-  #define ILI9341_COLOR_RGB
-  // YV for normal screen mounting
-  #define ILI9341_ORIENTATION  ILI9341_MADCTL_MY | ILI9341_MADCTL_MV
-  // XV for 180° rotated screen mounting
-  //#define ILI9341_ORIENTATION  ILI9341_MADCTL_MX | ILI9341_MADCTL_MV
 #endif
 
 #if ENABLED(TOUCH_SCREEN)
