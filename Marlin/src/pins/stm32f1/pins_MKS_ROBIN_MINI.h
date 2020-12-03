@@ -169,21 +169,6 @@
   #define TOUCH_MOSI_PIN                    PB15  // SPI2_MOSI
 #endif
 
-#if ENABLED(TOUCH_SCREEN)
-  #ifndef TOUCH_CALIBRATION_X
-    #define TOUCH_CALIBRATION_X            12033
-  #endif
-  #ifndef TOUCH_CALIBRATION_Y
-    #define TOUCH_CALIBRATION_Y            -9047
-  #endif
-  #ifndef TOUCH_OFFSET_X
-    #define TOUCH_OFFSET_X                   -30
-  #endif
-  #ifndef TOUCH_OFFSET_Y
-    #define TOUCH_OFFSET_Y                   254
-  #endif
-#endif
-
 #define HAS_SPI_FLASH                          1
 #if HAS_SPI_FLASH
   #define SPI_FLASH_SIZE               0x1000000  // 16MB
