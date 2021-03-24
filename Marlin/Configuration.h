@@ -2220,7 +2220,7 @@
  *   Resolution: TFT_WIDTH and TFT_HEIGHT
  *   Interface:  TFT_INTERFACE_FSMC or TFT_INTERFACE_SPI
  */
-//#define TFT_GENERIC
+#define MKS_ROBIN_TFT24
 
 /**
  * TFT UI - User Interface Selection. Enable one of the following options:
@@ -2265,10 +2265,10 @@
 
   #define TOUCH_SCREEN_CALIBRATION
 
-  //#define XPT2046_X_CALIBRATION 12316
-  //#define XPT2046_Y_CALIBRATION -8981
-  //#define XPT2046_X_OFFSET        -43
-  //#define XPT2046_Y_OFFSET        257
+  #define XPT2046_X_CALIBRATION 12033
+  #define XPT2046_Y_CALIBRATION -9047
+  #define XPT2046_X_OFFSET        -30
+  #define XPT2046_Y_OFFSET        254
 #endif
 
 //
