@@ -2549,7 +2549,7 @@
   #if AXIS_IS_TMC(X)
     #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS     16        // 0..256
+    #define X_MICROSTEPS    256        // 0..256
     #define X_RSENSE          0.11
     #define X_CHAIN_POS      -1        // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
@@ -2567,7 +2567,7 @@
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT       800
     #define Y_CURRENT_HOME  Y_CURRENT
-    #define Y_MICROSTEPS     16
+    #define Y_MICROSTEPS    256
     #define Y_RSENSE          0.11
     #define Y_CHAIN_POS      -1
     //#define Y_INTERPOLATE  true
@@ -2585,7 +2585,7 @@
   #if AXIS_IS_TMC(Z)
     #define Z_CURRENT       800
     #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS     16
+    #define Z_MICROSTEPS    256
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1
     //#define Z_INTERPOLATE  true
@@ -2647,7 +2647,7 @@
 
   #if AXIS_IS_TMC(E0)
     #define E0_CURRENT      800
-    #define E0_MICROSTEPS    16
+    #define E0_MICROSTEPS   256
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
     //#define E0_INTERPOLATE true
@@ -2744,6 +2744,27 @@
   //#define TMC_SW_SCK        -1
 
   /**
+   * Software serial
+   */
+  #define X_SERIAL_TX_PIN  PA5
+  #define X_SERIAL_RX_PIN  PA5
+
+  #define Y_SERIAL_TX_PIN  PC13
+  #define Y_SERIAL_RX_PIN  PC13
+
+  #define Z_SERIAL_TX_PIN  PC7
+  #define Z_SERIAL_RX_PIN  PC7
+
+  #define E0_SERIAL_TX_PIN PA10
+  #define E0_SERIAL_RX_PIN PA10
+
+  //#define E1_SERIAL_TX_PIN PA9
+  //#define E1_SERIAL_TX_PIN PA9
+
+  // Reduce baud rate to improve software serial reliability
+  #define TMC_BAUD_RATE                    19200
+
+  /**
    * Four TMC2209 drivers can use the same HW/SW serial port with hardware configured addresses.
    * Set the address using jumpers on pins MS1 and MS2.
    * Address | MS1  | MS2
@@ -2755,9 +2776,9 @@
    * Set *_SERIAL_TX_PIN and *_SERIAL_RX_PIN to match for all drivers
    * on the same serial port, either here or in your board's pins file.
    */
-  //#define  X_SLAVE_ADDRESS 0
-  //#define  Y_SLAVE_ADDRESS 0
-  //#define  Z_SLAVE_ADDRESS 0
+  #define  X_SLAVE_ADDRESS 3
+  #define  Y_SLAVE_ADDRESS 3
+  #define  Z_SLAVE_ADDRESS 3
   //#define X2_SLAVE_ADDRESS 0
   //#define Y2_SLAVE_ADDRESS 0
   //#define Z2_SLAVE_ADDRESS 0
@@ -2766,7 +2787,7 @@
   //#define  I_SLAVE_ADDRESS 0
   //#define  J_SLAVE_ADDRESS 0
   //#define  K_SLAVE_ADDRESS 0
-  //#define E0_SLAVE_ADDRESS 0
+  #define E0_SLAVE_ADDRESS 3
   //#define E1_SLAVE_ADDRESS 0
   //#define E2_SLAVE_ADDRESS 0
   //#define E3_SLAVE_ADDRESS 0
@@ -2788,12 +2809,12 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
-  #define STEALTHCHOP_XY
-  #define STEALTHCHOP_Z
-  #define STEALTHCHOP_I
-  #define STEALTHCHOP_J
-  #define STEALTHCHOP_K
-  #define STEALTHCHOP_E
+  //#define STEALTHCHOP_XY
+  //#define STEALTHCHOP_Z
+  //#define STEALTHCHOP_I
+  //#define STEALTHCHOP_J
+  //#define STEALTHCHOP_K
+  //#define STEALTHCHOP_E
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -2810,7 +2831,7 @@
    * Define your own with:
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
-  #define CHOPPER_TIMING CHOPPER_DEFAULT_12V        // All axes (override below)
+  #define CHOPPER_TIMING CHOPPER_DEFAULT_24V        // All axes (override below)
   //#define CHOPPER_TIMING_X  CHOPPER_TIMING        // For X Axes (override below)
   //#define CHOPPER_TIMING_X2 CHOPPER_TIMING_X
   //#define CHOPPER_TIMING_Y  CHOPPER_TIMING        // For Y Axes (override below)
@@ -2839,7 +2860,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  #define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -2942,7 +2963,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  //#define TMC_DEBUG
+  #define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
