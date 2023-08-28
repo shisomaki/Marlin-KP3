@@ -240,7 +240,7 @@ void MarlinUI::draw_status_screen() {
 
   // Coordinates
   #if ENABLED(MOVE_AXIS_SCREEN)
-    TERN_(TOUCH_SCREEN, touch.add_control(MENU_SCREEN, COORDINATES_X, COORDINATES_Y, COORDINATES_W, COORDINATES_H, (intptr_t) ui.move_axis_screen));
+    TERN_(TOUCH_SCREEN, touch.add_control(MENU_CLICK, COORDINATES_X, COORDINATES_Y, COORDINATES_W, COORDINATES_H));
   #endif
 
   tft.canvas(COORDINATES_X, COORDINATES_Y, COORDINATES_W, COORDINATES_H);
@@ -318,7 +318,7 @@ void MarlinUI::draw_status_screen() {
   #endif
 
   #if ENABLED(TOUCH_SCREEN)
-    add_control(MENU_ICON_X, MENU_ICON_Y, menu_main, imgSettings);
+    add_control(MENU_ICON_X, MENU_ICON_Y, move_axis_screen, imgSettings);
     #if HAS_MEDIA
       const bool cm = card.isMounted(), pa = printingIsActive();
       if (cm && pa)
