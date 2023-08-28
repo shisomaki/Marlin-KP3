@@ -240,8 +240,7 @@ void MarlinUI::draw_status_screen() {
 
   // Coordinates
   #if ENABLED(MOVE_AXIS_SCREEN)
-    TERN_(TOUCH_SCREEN, touch.add_control(MENU_SCREEN, COORDINATES_X, COORDINATES_Y, TFT_WIDTH/2 - 32, COORDINATES_H, (intptr_t) ui.move_axis_screen));
-    TERN_(TOUCH_SCREEN, touch.add_control(MENU_SCREEN, PROGRESS_BAR_X, PROGRESS_BAR_Y, TFT_WIDTH/2 - 32, PROGRESS_BAR_H + STATUS_MESSAGE_H, (intptr_t) ui.move_axis_screen));
+    TERN_(TOUCH_SCREEN, touch.add_control(MENU_SCREEN, COORDINATES_X, COORDINATES_Y, COORDINATES_W, COORDINATES_H, (intptr_t) ui.move_axis_screen));
   #endif
 
   tft.canvas(COORDINATES_X, COORDINATES_Y, COORDINATES_W, COORDINATES_H);
