@@ -2699,7 +2699,7 @@
  * Only some STM32 MCUs are currently supported.
  * Note: This has no effect on emulated USB serial ports.
  */
-//#define SERIAL_DMA
+#define SERIAL_DMA
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.
